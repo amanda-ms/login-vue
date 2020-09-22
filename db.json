@@ -1,0 +1,35 @@
+{
+  "users": [
+    {
+      "name": "Amanda",
+      "email": "amanda@angis.com.br",
+      "password": "123",
+      "id": 2
+    },
+    {
+      "name": "Diego",
+      "email": "diego@angis.com.br",
+      "password": "123",
+      "id": 3
+    },
+    {
+      "name": "tiago",
+      "email": "tiago@angis.com.br",
+      "password": "123",
+      "id": 4
+    },
+    {
+      "name": "ana",
+      "email": "ana@angis.com.br",
+      "password": "123",
+      "id": 5
+    },
+    {
+      "name": "alex",
+      "email": "alex@angis.com",
+      "password": "123",
+      "id": 6
+    }
+  ],
+  "biblioteca": []
+}
