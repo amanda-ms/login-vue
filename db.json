@@ -29,7 +29,43 @@
       "email": "alex@angis.com",
       "password": "123",
       "id": 6
+    },
+    {
+      "nome": "allan",
+      "email": "allan@angis.com.br",
+      "date": "1995-06-12",
+      "password": "123",
+      "id": 7
+    },
+    {
+      "nome": "gabriel",
+      "email": "gabriel@angis.com.br",
+      "date": "1995-04-05",
+      "password": "123",
+      "id": 8
     }
   ],
-  "biblioteca": []
+  "biblioteca": [
+    {
+      "nome": "Donnie Darko",
+      "autor": "Richard Kelly",
+      "genero": "Ficção científica, Terror",
+      "editora": "Darksideee",
+      "id": 1
+    },
+    {
+      "nome": "O Alienista",
+      "autor": "Machado de Assis",
+      "genero": "Romance",
+      "editora": "Via Leitura",
+      "id": 2
+    },
+    {
+      "nome": "It - A Coisa",
+      "autor": "Stephen King",
+      "genero": "Romance, Terror, Suspense",
+      "editora": "Viking Press",
+      "id": 3
+    }
+  ]
 }

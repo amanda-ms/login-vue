@@ -63,7 +63,7 @@ export default {
   methods: {
     async createUser(e) {
       e.preventDefault();
-      const { data } = await axios.post("http://localhost:3000/biblioteca", {
+      const { data } = await axios.post("http://localhost:3000/users", {
         nome: this.nome,
         email: this.email,
         date: this.date,

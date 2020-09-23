@@ -5,8 +5,13 @@
       <button @click="logout" class="dashboard__header__button">Sair</button>
     </div>
 
-    <form @click="addUser" class="dashboard__form content">
-      <input type="text" class="dashboard__form__nome" placeholder="Digite seu nome" v-model="name" />
+    <form @submit="addUser" class="dashboard__form content">
+      <input
+        type="text"
+        class="dashboard__form__nome"
+        placeholder="Digite seu nome"
+        v-model="name"
+      />
       <input
         type="email"
         class="dashboard__form__email"
@@ -56,10 +61,10 @@
       </thead>
       <tbody>
         <tr v-for="user in users" :key="user.id">
-          <td>{{user.id}}</td>
-          <td>{{user.name}}</td>
-          <td>{{user.email}}</td>
-          <td>{{user.password}}</td>
+          <td>{{ user.id }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.password }}</td>
           <td>
             <a href="#" @click="deletarUser($event, user.id)">Deletar</a>
             <a href="#" @click="carregarInfo($event, user)">Editar</a>
@@ -110,7 +115,9 @@ export default {
         password: this.password,
       });
 
-      (this.name = ""), (this.email = ""), (this.password = "");
+      this.name = "";
+      this.email = "";
+      this.password = "";
 
       this.carregarUser();
     },
@@ -147,7 +154,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .content {
   width: 65%;
   margin: 0 auto;
