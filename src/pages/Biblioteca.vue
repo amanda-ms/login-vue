@@ -12,6 +12,10 @@
     <table class="bib__table content">
       <thead>
         <tr>
+          <!-- <th>
+            <input type="checkbox" @change="check" v-model="checkAll" /> -
+            {{ checkAll }}
+          </th> -->
           <th>Nome</th>
           <th>Autor</th>
           <th>Genero</th>
@@ -21,6 +25,10 @@
       </thead>
       <tbody>
         <tr v-for="bib in biblioteca" :key="bib.id">
+          <!-- <td>
+            <input type="checkbox" :checked="bib.check" v-model="bib.check" /> -
+            {{ bib.check }}
+          </td> -->
           <td>{{ bib.nome }}</td>
           <td>{{ bib.autor }}</td>
           <td>{{ bib.genero }}</td>
@@ -37,10 +45,13 @@
       </tbody>
     </table>
 
+    <!-- <span style="color: #fff">Items: {{ showCheck }}</span> -->
+
     <div class="bib__buttons content">
-      <button class="bib__buttons__btn-voltar">
-        Voltar
-      </button>
+      <!-- <button @click="deleteAll" class="modal__form__btn-voltar">
+        Excluir todos
+      </button> -->
+      <button class="bib__buttons__btn-voltar">Voltar</button>
       <button @click="modal = true" class="bib__buttons__btn-add">Novo</button>
     </div>
 
@@ -77,6 +88,7 @@
             v-model="editora"
             class="modal__form__input"
           />
+
           <button @click="modal = false" class="modal__form__btn-voltar">
             Voltar
           </button>
@@ -147,6 +159,7 @@ export default {
       },
       modal: false,
       modalEditar: false,
+      checkAll: false,
     };
   },
   components: {
@@ -155,13 +168,41 @@ export default {
   mounted() {
     this.carregarLivros();
   },
+  // computed: {
+  //   showCheck() {
+  //     const filter = this.biblioteca.filter((bib) => bib.check);
+  //     const ids = [];
+  //     filter.map((bib) => {
+  //       ids.push(bib.id);
+  //     });
+  //     return ids;
+  //   },
+  // },
   methods: {
+    // check(e) {
+    //   console.log(e);
+    //   const libraries = this.biblioteca;
+
+    //   libraries.map((item) => {
+    //     item.check = this.checkAll ? true : false;
+    //   });
+
+    //   this.biblioteca = libraries;
+    // },
+    // checkOne(item) {
+    //   console.log(item);
+    // },
+
     logout() {
       this.$router.push({ name: "login" });
     },
 
     async carregarLivros() {
       const { data } = await axios.get("http://localhost:3000/biblioteca");
+
+      // data.map((item) => {
+      //   item.check = false;
+      // });
 
       this.biblioteca = data;
     },
@@ -182,9 +223,18 @@ export default {
 
       this.carregarLivros();
     },
-
+    // async deleteAll(e) {
+    //   e.preventDefault();
+    //   const { data } = await axios.post(
+    //     `http://localhost:3000/biblioteca/delete`,
+    //     {
+    //       ids: this.showCheck,
+    //     }
+    //   );
+    // },
     async deletarLivro(e, id) {
       e.preventDefault();
+
       const { data } = await axios.delete(
         `http://localhost:3000/biblioteca/${id}`
       );

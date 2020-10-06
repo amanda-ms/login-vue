@@ -83,7 +83,7 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 40%;
+    width: 45%;
     height: 500px;
     background: rgba(126, 126, 126, 0.3);
     border-radius: 20px;
